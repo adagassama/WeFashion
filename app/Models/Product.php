@@ -9,6 +9,14 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name', 'description', 'price', 'visibility', 'status', 'reference', 'category_id'
+    ];
+
+    public function scopePublished($query) {
+        return $query->where('visibility', 'Publié');
+    }
+
     public function category(){
         return $this->belongsTo(Category::class);
     }
