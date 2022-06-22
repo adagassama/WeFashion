@@ -14,7 +14,7 @@ class Product extends Model
     ];
 
     public function scopePublished($query) {
-        return $query->where('visibility', 'Publié');
+        return $query->where('visibility', 'published');
     }
 
     public function category(){

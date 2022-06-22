@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -54,6 +55,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required|string',
@@ -69,6 +72,7 @@ class ProductController extends Controller
         $product = Product::create($request->all()); // associé les fillables
 
 
+
         $product->sizes()->attach($request->sizes);
 
         // image
@@ -82,11 +86,11 @@ class ProductController extends Controller
             // mettre à jour la table picture pour le lien vers l'image dans la base de données;
             $product->picture()->create([
                 'link' => $link,
-                'title' => $request->title_image?? $request->title
+                'title' => $request->title_image?? $request->title_image
             ]);
         }
 
-        return redirect()->route('product.index')->with('message', 'Le produit a bien été créé');
+        return redirect()->route('product.index')->with('message', 'Le produit a été ajouté avec succès');
 
     }
 
@@ -111,7 +115,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $sizes = Size::pluck('name', 'id')->all();
+        $allSizes = [];
+        foreach ($product->sizes as $productSize) {
+            $allSizes[] = $productSize->id;
+        }
+        $categories = Category::pluck('name', 'id')->all();
+
+        return view('back.product.create', compact('product', 'sizes', 'categories','allSizes'));
     }
 
     /**
@@ -123,7 +135,49 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required|string',
+            'category_id' => 'integer',
+            'sizes.*' => 'integer', // pour vérifier un tableau d'entiers il faut mettre authors.*
+            'visibility' => 'in:published,unpublished',
+            'picture_title' => 'string|nullable', // pour le titre de l'image si il existe
+            'picture' => 'image|max:3000',
+            'reference' => 'string',
+            'status' => 'string'
+        ]);
+
+        $product =Product::find($id); // associé les fillables
+
+        $product->update($request->all());
+
+        // on utilisera la méthode sync pour mettre à jour les auteurs dans la table de liaison
+        $product->sizes()->sync($request->sizes);
+
+
+        // image
+        $im = $request->file('picture');
+
+        // si on associe une image à un produit
+        if (!empty($im)) {
+
+            $link = $request->file('picture')->store('images');
+
+            // suppression de l'image si elle existe
+                Storage::disk('local')->delete($product->picture->link); // supprimer physiquement l'image
+                $product->picture()->delete(); // supprimer l'information en base de données
+
+
+            // mettre à jour la table picture pour le lien vers l'image dans la base de données
+            $product->picture()->create([
+                'link' => $link,
+                'title' => $picture_title?? 'Titre'
+            ]);
+
+        }
+        return redirect()->route('product.index')->with('message', 'Le produit a été modifié avec succès');
+
+
     }
 
     /**
@@ -138,6 +192,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('product.index')->with('message', 'success delete');
+        return redirect()->route('product.index')->with('message', 'Supprimé avec succès');
     }
 }
