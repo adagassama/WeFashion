@@ -18,13 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('logo_wefashion.png') }}" height="35" width="100">
+                    <img src="{{ asset('logo_wefashion.png') }}" height="45" width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,10 +37,10 @@
                     <ul class="navbar-nav me-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('produits')}}">Produits</a>
+                                <a class="nav-link" href="{{url('admin/product')}}">Produits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('Catégories')}}">Catégories</a>
+                                <a class="nav-link" href="{{url('admin/category')}}">Catégories</a>
                             </li>
 
 
@@ -88,4 +90,7 @@
         </main>
     </div>
 </body>
+<div class="col-md-12">
+    @include('partials.footer')
+</div>
 </html>

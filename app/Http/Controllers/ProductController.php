@@ -192,6 +192,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('product.index')->with('message', 'Supprimé avec succès');
+        return redirect()->route('product.index')->with('message', 'produit supprimé avec succès');
     }
 }
