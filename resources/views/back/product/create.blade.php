@@ -18,20 +18,19 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input type="text" minlength="5" maxlength="100" class="form-control" id="name" name="name" value="{{ old('name', ($product->name)??'') }}" required autofocus>
+                                            <input type="text" minlength="5" maxlength="100" class="form-control item" id="name" name="name" value="{{ old('name', ($product->name)??'') }}" required autofocus>
                                             @if($errors->has('name')) <span class="error bg-warning text-warning">{{$errors->first('name')}}</span>@endif
                                         </div>
 
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea class="form-control" id="description" name="description" rows="3">{{ old('description',($product->description)??'') }}</textarea>
+                                            <textarea class="form-control item" id="description" name="description" rows="3">{{ old('description',($product->description)??'') }}</textarea>
                                             @if($errors->has('description')) <span class="error bg-warning text-warning">{{$errors->first('description')}}</span> @endif
                                         </div>
 
-
                                         <div class="form-group">
                                             <label for="category">Catégories :</label><br>
-                                            <select id="category" name="category_id" class="form-control form-select">
+                                            <select id="category" name="category_id" class="form-control item form-select">
                                                 <option value="0" class="form-control">Faites un choix</option>
 
                                                 @foreach($categories as $id => $name)
@@ -45,17 +44,17 @@
 
                                         <div class="form-group">
                                             <label for="price">Prix</label>
-                                            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0.01" max="9999.99" value="{{ old('price',($product->price) ??'') }}" required>
+                                            <input type="number" class="form-control item" id="price" name="price" step="0.01" min="0.01" max="9999.99" value="{{ old('price',($product->price) ??'') }}" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="reference">Référence</label>
-                                            <input type="text" minlength="16" maxlength="16" class="form-control" id="reference" name="reference" value="{{ old('reference',($product->reference)??'') }}" required>
+                                            <input type="text" minlength="16" maxlength="16" class="form-control item" id="reference" name="reference" value="{{ old('reference',($product->reference)??'') }}" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="picture_title">Titre de la photo</label>
-                                            <input type="text" maxlength="100" class="form-control" id="picture_title" name="picture_title" value="{{ old('picture_title',($product->picture->title)??'') }}">
+                                            <input type="text" maxlength="100" class="form-control item" id="picture_title" name="picture_title" value="{{ old('picture_title',($product->picture->title)??'') }}">
                                         </div>
 
                                     </div>
@@ -107,7 +106,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="file" class="form-control-file" name="picture" id="picture">
+                                            <input type="file" class="form-control item -file" name="picture" id="picture">
                                         </div>
 
 
