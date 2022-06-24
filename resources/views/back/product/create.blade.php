@@ -61,7 +61,7 @@
 
 
 
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-12 col-m@@@@d-6">
 
                                         <div class="form-group">
                                             <label>Statut</label> <br>
@@ -72,7 +72,7 @@
                                                 <input class="form-check-input" type="radio" id="status0" name="status" @checked(old('status', ($product->status)?? '') == 'Standard') value="Standard">
                                                 <label class="form-check-label" for="status0">Standard</label>
                                             </div>
-                                            <div class="form-check form-check-inline">
+                                            <div class="form-check form-check-inline item" >
                                                 <input class="form-check-input" type="radio" id="status1" name="status" @checked(old('status', ($product->status)?? '') == 'Solde') value="Solde">
                                                 <label class="form-check-label" for="status1">Solde</label>
                                             </div>
@@ -84,7 +84,7 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                             @foreach ($sizes as $id => $name)
-                                                <div class="form-check form-check-inline">
+                                                <div class="form-check form-check-inline item">
                                                     <input class="form-check-input" type="checkbox" id="size{{$id}}" value="{{ $id }}" @checked (in_array( $id, old('sizes', ($allSizes)?? []) )) name="sizes[]" >
                                                     <label class="form-check-label" for="{{ $name}}">{{ $name }}</label>
                                                 </div>
@@ -93,10 +93,10 @@
                                         <div class="form-group">
                                             <label>Visibilité</label> <br>
                                             @error('published')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger ">{{ $message }}</div>
                                             @enderror
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" id="published1" @checked(old('visibility', ($product->visibility)?? '') == 'published') value="published"  name="visibility">
+                                            <div class="item form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" id="published1" @checked(old('visibility', ($product->visibility)?? '') == 'published') value="published"  name="visibility">
                                                 <label class="form-check-label" for="published1">Publié</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -106,13 +106,13 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="file" class="form-control item -file" name="picture" id="picture">
+                                            <input type="file" class="form-control -file" name="picture" id="picture">
                                         </div>
 
 
                                         @if (Route::is('product.edit'))
                                             <div class="form-group">
-                                                <h2>Image associée :</h2>
+                                                <label>Image associée :</label>
                                             </div>
                                             <div class="form-group-image">
                                                 <img class="picture" src="{{url('imagesss', $product->picture->link)}}" alt="">

@@ -17,6 +17,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('category', $id)}}">{{$name}}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('category', $id)}}">{{$name}}</a>
+                    </li>
                 @empty
                     <li class="nav-item">Aucun genre pour l'instant</li>
                 @endforelse
