@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<div class="container">
     <div class="row">
         <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
             <a href="#" class="thumbnail">
@@ -29,5 +29,6 @@
             <button type="button" class="btn btn-primary">Acheter</button>
         </div>
     </div>
+</div>
 @endsection
 

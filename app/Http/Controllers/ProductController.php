@@ -148,13 +148,10 @@ class ProductController extends Controller
         ]);
 
         $product =Product::find($id); // associé les fillables
-
         $product->update($request->all());
 
         // on utilisera la méthode sync pour mettre à jour les auteurs dans la table de liaison
         $product->sizes()->sync($request->sizes);
-
-
         // image
         $im = $request->file('picture');
 

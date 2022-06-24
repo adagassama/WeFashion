@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="container">
-        <h1>Tous les produits</h1>
+        <h1 class="title">BIENVENUE DANS WEFASHION STORE </h1>
+        <h1 class="subtitle">Nos Produits disponibles</h1>
         <div class="row">
             {{$products->links()}}
             <p class="text-md-end">{{ $products->total() }} résultats</p>
@@ -17,15 +18,6 @@
                                 </div>
                                 <div class="new-arrival-content text-center mt-3">
                                     <h5><a href="{{url('product', $product->id)}}">{{$product->name}}</a></h5>
-
-                                    {{--<h5>Size(s):</h5>
-                                    <ul>
-                                        @forelse($product->sizes as $size)
-                                            <a href="{{url('size', $size->id)}}">{{$size->name}}</a>
-                                        @empty
-                                            <li>Aucune size</li>
-                                        @endforelse
-                                    </ul>--}}
                                     <span class="price">{{ $product->price }} €</span><br>
                                     <button type="button" class="btn btn-primary">Ajouter au panier</button><br>
                                 </div>
@@ -39,7 +31,5 @@
         <div class="m-xl-4 col-lg-6">
             {{$products->links()}}
         </div>
-
     </div>
-
 @endsection

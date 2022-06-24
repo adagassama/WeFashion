@@ -26,6 +26,7 @@ Route::resource('admin/category',CategoryController::class)->middleware(['auth']
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/', [FrontController::class, 'index']);
 Route::get('product/{id}', [FrontController::class, 'show'])->where(['id' => '[0-9]+']);
 Route::get('solde', [FrontController::class, 'showProductBySolde']);
