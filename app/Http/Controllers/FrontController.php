@@ -46,6 +46,8 @@ class FrontController extends Controller
         return view('front.index', ['products' => $products]);
     }
 
+    // La méthode showProductByCategory() permet de retourner les produits en fonction de la catégorie
+
     public function showProductByCategory(int $id){
 
         $category = Category::find($id);

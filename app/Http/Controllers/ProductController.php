@@ -26,7 +26,11 @@ class ProductController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+
+    // l'index nous retourne la liste de tous les produits publiés
+
     public function index()
     {
         $products = Product::paginate($this->paginate);
@@ -38,12 +42,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // La méthode create() permet de créer un nouveau produit
     public function create()
     {
         // permet de récupérer une collection type array avec en clé id => name
         $sizes = Size::pluck('name', 'id')->all();
         $categories = Category::pluck('name', 'id')->all();
-
         return view('back.product.create', ['sizes' => $sizes, 'categories' => $categories]);
     }
 
@@ -53,26 +58,22 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // La méthode store() permet d'assurer la validation des informations saisies par l'administrateur pour la création d'un nouveau produit
     public function store(Request $request)
     {
-
-
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required|string',
             'category_id' => 'integer',
-            'sizes.*' => 'integer', // pour vérifier un tableau d'entiers il faut mettre authors.*
+            'sizes.*' => 'integer', // pour vérifier un tableau d'entiers il faut mettre sizes.*
             'visibility' => 'in:published,unpublished',
             'picture_title' => 'string|nullable', // pour le titre de l'image si il existe
             'picture' => 'image|max:3000',
             'reference' => 'string',
             'status' => 'string'
         ]);
-
         $product = Product::create($request->all()); // associé les fillables
-
-
-
         $product->sizes()->attach($request->sizes);
 
         // image
@@ -103,7 +104,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-
         return view('back.product.show', ['product' => $product]);
     }
 
@@ -113,6 +113,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         $product = Product::find($id);
@@ -133,13 +134,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Assure la modification des produits
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required|string',
             'category_id' => 'integer',
-            'sizes.*' => 'integer', // pour vérifier un tableau d'entiers il faut mettre authors.*
+            'sizes.*' => 'integer', // pour vérifier un tableau d'entiers il faut mettre sizes.*
             'visibility' => 'in:published,unpublished',
             'picture_title' => 'string|nullable', // pour le titre de l'image si il existe
             'picture' => 'image|max:3000',
@@ -150,7 +152,7 @@ class ProductController extends Controller
         $product =Product::find($id); // associé les fillables
         $product->update($request->all());
 
-        // on utilisera la méthode sync pour mettre à jour les auteurs dans la table de liaison
+        // on utilisera la méthode sync pour mettre à jour les sizes dans la table de liaison
         $product->sizes()->sync($request->sizes);
         // image
         $im = $request->file('picture');
@@ -174,7 +176,6 @@ class ProductController extends Controller
         }
         return redirect()->route('product.index')->with('message', 'Le produit a été modifié avec succès');
 
-
     }
 
     /**
@@ -183,12 +184,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Assure la suppression d'un produit
     public function destroy($id)
     {
         $product = Product::find($id);
-
         $product->delete();
-
         return redirect()->route('product.index')->with('message', 'produit supprimé avec succès');
     }
 }
