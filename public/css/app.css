@@ -10372,6 +10372,8 @@ body{
 {
     height: 550px;
     width: 400px;
+    margin-left: auto;
+    padding: inherit;
 }
 .photo-produit
 {

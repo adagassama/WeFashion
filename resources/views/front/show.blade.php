@@ -4,9 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6">
+            <div class="thumbnail-image">
             <a href="#" class="thumbnail">
                 <img class="photo-produit" src="{{asset('imagesss/'.$product->picture->link)}}" alt="{{$product->picture->title}}">
             </a>
+            </div>
         </div>
         <div class="col-12 col-md-6">
             <p class="product-title"><h2>{{$product->name}}</h2></p><br>
