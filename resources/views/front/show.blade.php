@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-6 thumbnail-image">
+        <div class="col-12 col-md-6">
             <a href="#" class="thumbnail">
                 <img class="photo-produit" src="{{asset('imagesss/'.$product->picture->link)}}" alt="{{$product->picture->title}}">
             </a>
         </div>
-        <div class="col-12 col-md-6 my-4 my-md-0">
+        <div class="col-12 col-md-6">
             <p class="product-title"><h2>{{$product->name}}</h2></p><br>
 
             <div>
