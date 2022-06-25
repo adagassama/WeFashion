@@ -61,7 +61,7 @@
 
 
 
-                                    <div class="col-12 col-m@@@@d-6">
+                                    <div class="col-12 col-md-6">
 
                                         <div class="form-group">
                                             <label>Statut</label> <br>

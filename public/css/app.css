@@ -10364,4 +10364,18 @@ body{
     font-weight: 900;
     text-align: center;
 }
+.subtitle
+{
+    text-align: center;
+}
+.thumbnail-image
+{
+    height: 550px;
+    width: 400px;
+}
+.photo-produit
+{
+    height: 100%;
+    width: 100%;
+}
 

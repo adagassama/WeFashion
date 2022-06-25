@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+        <div class="col-6 thumbnail-image">
             <a href="#" class="thumbnail">
-                <img class="w-100" src="{{asset('imagesss/'.$product->picture->link)}}" alt="{{$product->picture->title}}">
+                <img class="photo-produit" src="{{asset('imagesss/'.$product->picture->link)}}" alt="{{$product->picture->title}}">
             </a>
         </div>
         <div class="col-12 col-md-6 my-4 my-md-0">

@@ -4,7 +4,7 @@
 
     <div class="container">
         <h1 class="title">BIENVENUE DANS WEFASHION STORE </h1>
-        <h1 class="subtitle">Nos Produits disponibles</h1>
+        <h1 class="subtitle">Nos produits disponibles </h1>
         <div class="row">
             {{$products->links()}}
             <p class="text-md-end">{{ $products->total() }} résultats</p>
