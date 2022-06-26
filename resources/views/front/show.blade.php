@@ -15,18 +15,16 @@
 
             <div>
                 <p>{{ $product->description }}</p>
-                <p><strong>REFERENCE : </strong><span class="text-uppercase">{{ $product->reference }}</span> </p>
+                <p><strong class="etiquette">CATEGORIE : </strong><span class="text-uppercase">{{ $product->category->name}}</span> </p>
+                <p><strong class="etiquette">REFERENCE : </strong><span class="text-uppercase">{{ $product->reference }}</span> </p>
+                <p><strong class="etiquette">PRIX : </strong>{{ $product->price }} €</p>
+                <strong class="etiquette">TAILLES :</strong> <select class="custom-select my-4">
+                    <option selected disabled>Les tailles</option>
+                    @foreach ($product->sizes as $size)
+                        <option value="{{ $size->name }}">{{ $size->name }}</option>
+                    @endforeach
+                </select>
             </div>
-
-
-            <p><strong>PRIX : </strong>{{ $product->price }} € TTC</p>
-
-            TAILLES : <select class="custom-select my-4">
-                <option selected disabled>Les tailles</option>
-                @foreach ($product->sizes as $size)
-                    <option value="{{ $size->name }}">{{ $size->name }}</option>
-                @endforeach
-            </select><br><br>
 
             <button type="button" class="btn btn-primary">ACHETER</button>
         </div>
