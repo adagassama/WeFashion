@@ -5,7 +5,7 @@
 
 ## Projet de développement web back-end pour L'École Multimédia
 
-Adresse du projet GitHub : [https://github.com/adagassama/WeFashion](https://laravel.com/docs/routing)
+Adresse du projet GitHub : [https://github.com/adagassama/WeFashion](https://github.com/adagassama/WeFashion)
 
 Le MCD est situé à la racine du projet sous format png (modele.png)
 
