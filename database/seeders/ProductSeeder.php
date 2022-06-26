@@ -60,12 +60,10 @@ class ProductSeeder extends Seeder
             Storage::disk('local')->put($link, $file);
 
             $product->picture()->create([
-                'title' => 'Default', // valeur par défaut
+                'title' => 'Default',
                 'link' => $link
             ]);
 
-
-            //$sizes = Size::find(rand(1,5));
             $sizes =Size::pluck('id')->shuffle()->slice(0,rand(1,5))->all();
 
             // Il faut se mettre maintenant en relation avec les auteurs (relation ManyToMany) et attacher les id des auteurs

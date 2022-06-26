@@ -10,6 +10,11 @@
 
 @section('content')
     <div class="container">
+        <div class="registration-form">
+
+            <div class="card">
+                <div class="card-header create-title"><h3>@if (Route::is('category.create')){{ 'CREATION DE NOUVELLE CATEGORIE' }}@else{{'MODIFICATION DE CATEGORIE'}}@endif</h3></div>
+                <div class="card-body">
         @if (Route::is('category.create'))
             <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
         @else
@@ -18,25 +23,27 @@
         @endif
             @csrf
             <div class="row">
-                <div class="col-12 col-md-6">
+
 
                         <div class="form-group">
-                            <label for="name">Nom de la catégorie</label>
-                            <input type="text" minlength="5" maxlength="100" class="form-control" id="name" name="name" value="{{ old('name', ($category->name)??'') }}" required>
+                            <label for="name">NOM DE LA CATEGORIE</label>
+                            <input type="text" minlength="5" maxlength="100" class="form-control item" id="name" name="name" value="{{ old('name', ($category->name)??'') }}" required>
                             @if($errors->has('name')) <span class="error bg-warning text-warning">{{$errors->first('name')}}</span>@endif
                         </div><br>
 
                     @if (Route::is('category.edit'))
-                        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                        <button type="submit" class="btn btn-block create-account btn-lg btn-block">Mettre à jour</button>
                     @endif
                     @if(Route::is('category.create'))
-                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                        <button type="submit" class="btn btn-block create-account btn-lg btn-block">Ajouter</button>
                     @endif
-                </div><br>
+
 
             </div>
         </form>
-        <div class="m-xl-4">
-
+                </div>
+            </div>
         </div>
+    </div>
+    </div>
 @endsection

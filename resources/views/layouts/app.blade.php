@@ -56,7 +56,7 @@
                                 @auth
                                     <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline nav-link">Dashboard</a>
                                 @else
-                                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline nav-link">Log in</a>
+                                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline nav-link">Connexion</a>
 
                                 @endauth
                             </div>

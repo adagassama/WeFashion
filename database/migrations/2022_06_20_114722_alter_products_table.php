@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedInteger('category_id')->nullable();
-
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

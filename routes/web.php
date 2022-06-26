@@ -16,16 +16,17 @@ use App\Http\Controllers\FrontController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () { return view('welcome'); });*/
 
+// Routes pour accéder aux CRUD produit et catégorie
 Route::resource('admin/product',ProductController::class)->middleware(['auth']);
 Route::resource('admin/category',CategoryController::class)->middleware(['auth']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
+
+// Routes pour accéder aux Front du utilisateurs
 
 Route::get('/', [FrontController::class, 'index']);
 Route::get('product/{id}', [FrontController::class, 'show'])->where(['id' => '[0-9]+']);
