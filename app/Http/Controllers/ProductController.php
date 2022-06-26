@@ -29,7 +29,7 @@ class ProductController extends Controller
      *
      */
 
-    // l'index nous retourne la liste de tous les produits publiés
+    // l'index nous retourne la liste de tous les produits
 
     public function index()
     {

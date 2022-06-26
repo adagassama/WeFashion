@@ -23,6 +23,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // retourne l'ensemble des catégories
     public function index()
     {
         $categories = Category::paginate($this->paginate);
@@ -34,6 +36,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // Permet d'ajouter une nouvelle catégorie de produit
     public function create()
     {
 
@@ -52,7 +56,7 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        $category = Category::create($request->all()); // associé les fillable
+        $category = Category::create($request->all()); // associé les fillables
 
         return redirect()->route('category.index')->with('message', 'La catégorie a été ajoutée avec succès');
 
@@ -80,7 +84,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         return view('back.category.create', compact('category'));
-
     }
 
     /**
@@ -90,14 +93,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Modifier une catégorie
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required'
         ]);
-
         $category =Category::find($id); // associé les fillables
-
         $category->update($request->all());
 
         return redirect()->route('category.index')->with('message', 'La categorie a été modifiée avec succès');
@@ -111,12 +113,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Permet de supprimer une catégorie
     public function destroy($id)
     {
         $category = Category::find($id);
-
         $category->delete();
-
         return redirect()->route('category.index')->with('message', 'Catégorie supprimée avec succès');
     }
 }

@@ -19,7 +19,7 @@ class FrontController extends Controller
         });
     }
 
-    // l'index() permet de retourner la page d'accueil Front
+    // l'index() permet de retourner tous les produits publiés
 
     public function index(){
         $products = Product::published()->paginate($this->paginate); // pagination
