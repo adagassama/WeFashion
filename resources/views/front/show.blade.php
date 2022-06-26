@@ -15,20 +15,20 @@
 
             <div>
                 <p>{{ $product->description }}</p>
-                <p><strong>Référence produit : </strong><span class="text-uppercase">{{ $product->reference }}</span> </p>
+                <p><strong>REFERENCE : </strong><span class="text-uppercase">{{ $product->reference }}</span> </p>
             </div>
 
 
-            <p><strong>Price : </strong>{{ $product->price }} € TTC</p>
+            <p><strong>PRIX : </strong>{{ $product->price }} € TTC</p>
 
-            <select class="custom-select my-4">
-                <option selected disabled>Taille</option>
+            TAILLES : <select class="custom-select my-4">
+                <option selected disabled>Les tailles</option>
                 @foreach ($product->sizes as $size)
                     <option value="{{ $size->name }}">{{ $size->name }}</option>
                 @endforeach
             </select><br><br>
 
-            <button type="button" class="btn btn-primary">Acheter</button>
+            <button type="button" class="btn btn-primary">ACHETER</button>
         </div>
     </div>
 </div>

@@ -10376,7 +10376,8 @@ body{
 }
 .thumbnail-image
 {
-    height: 35em;
+    height: 33.375 em;
+    width: 27.75 rem;
 
     margin-left: auto;
 

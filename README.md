@@ -23,7 +23,12 @@ Le MCD est situé à la racine du projet sous format png (modele.png)
 
 6. Tapez la commande **php artisan serve** dans le 1er terminal puis **npm run watch** dans le second terminal
 
-7. Pour pouvoir accéder à l'interface d'administration, cliquez sur le bouton Connexion dans le menu. 
-   ####Email: edouard@gmail.com
-   ####Mot de passe: password
+7. Pour pouvoir accéder à l'interface d'administration, cliquez sur le bouton Connexion dans le menu.
+
+
+####Email: edouard@gmail.com
+
+####Mot de passe: password
+
+
 ###Vous pouvez désormais explorer l'application !

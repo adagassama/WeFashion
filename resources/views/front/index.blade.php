@@ -4,13 +4,6 @@
 
     <div class="container">
         <h1 class="title">Bienvenue dans la Boutique WEFASHION</h1>
-        @if(Route::is('category/1'))
-            <h1 class="subtitle">Nos produits pour HOMMES </h1>
-        @elseif(Route::is('category/2'))
-            <h1 class="subtitle">Nos produits pour FEMMES </h1>
-        @else
-            <h1 class="subtitle">Nos produits publiés </h1>
-        @endif
         <div class="row">
             {{$products->links()}}
             <p class="text-md-end">{{ $products->total() }} résultats</p>
