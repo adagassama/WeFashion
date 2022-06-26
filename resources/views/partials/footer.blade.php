@@ -16,7 +16,7 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <img src="{{ asset('logo_wefashion.png') }}" height=100 width="250">
+                    <img src="{{ asset('logo_wefashion.png') }}" height=100 width="250" alt="logo">
                 </div>
                 <!-- Grid column -->
 

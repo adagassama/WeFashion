@@ -103,13 +103,16 @@ body{
 }
 .thumbnail-image
 {
-    height: 550px;
-    width: 400px;
+    height: 35em;
+
     margin-left: auto;
-    padding: inherit;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .photo-produit
 {
+    border-radius: 20px;
     height: 100%;
     width: 100%;
 }
