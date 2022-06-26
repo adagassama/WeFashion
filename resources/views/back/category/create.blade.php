@@ -26,7 +26,7 @@
 
 
                         <div class="form-group">
-                            <label for="name">NOM DE LA CATEGORIE</label>
+                            <label for="name" class="etiquette">NOM DE LA CATEGORIE</label>
                             <input type="text" minlength="5" maxlength="100" class="form-control item" id="name" name="name" value="{{ old('name', ($category->name)??'') }}" required>
                             @if($errors->has('name')) <span class="error bg-warning text-warning">{{$errors->first('name')}}</span>@endif
                         </div><br>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container ">
         {{$products->links()}}
-        <p><a href="{{route('product.create')}}"><button type="button" class="btn btn-primary btn-lg">Ajouter un produit</button></a></p>
+        <p><a href="{{route('product.create')}}"><button type="button" class="btn btn-primary btn-lg">Nouveau</button></a></p>
         {{-- On inclut le fichier des messages retournés par les actions du contrôleurs ProductController--}}
         @include('back.product.partials.flash')
         <p class="text-md-end">{{ $products->total() }} résultats</p>
@@ -12,12 +12,12 @@
                 <table class="table table-striped" border="1">
                     <thead>
                     <tr align="center">
-                        <th>Name</th>
+                        <th>Nom</th>
                         <th>Catégorie</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th>Prix</th>
+                        <th>Statut</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>

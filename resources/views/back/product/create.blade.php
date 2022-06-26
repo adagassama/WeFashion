@@ -17,19 +17,19 @@
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="name">Nom</label>
+                                            <label for="name" class="etiquette">NOM</label>
                                             <input type="text" minlength="5" maxlength="100" class="form-control item" id="name" name="name" value="{{ old('name', ($product->name)??'') }}" required autofocus>
                                             @if($errors->has('name')) <span class="error bg-warning text-warning">{{$errors->first('name')}}</span>@endif
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="description">Description</label>
+                                            <label for="description" class="etiquette">DESCRIPTION</label>
                                             <textarea class="form-control item" id="description" name="description" rows="3">{{ old('description',($product->description)??'') }}</textarea>
                                             @if($errors->has('description')) <span class="error bg-warning text-warning">{{$errors->first('description')}}</span> @endif
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="category">Catégories :</label><br>
+                                            <label for="category" class="etiquette">CATEGORIES :</label><br>
                                             <select id="category" name="category_id" class="form-control item form-select">
                                                 <option value="0" class="form-control">Faites un choix</option>
 
@@ -43,17 +43,17 @@
 
 
                                         <div class="form-group">
-                                            <label for="price">Prix</label>
+                                            <label for="price" class="etiquette">PRIX</label>
                                             <input type="number" class="form-control item" id="price" name="price" step="0.01" min="0.01" max="9999.99" value="{{ old('price',($product->price) ??'') }}" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="reference">Référence</label>
+                                            <label for="reference" class="etiquette">REFERENCE</label>
                                             <input type="text" minlength="16" maxlength="16" class="form-control item" id="reference" name="reference" value="{{ old('reference',($product->reference)??'') }}" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="picture_title">Titre de la photo</label>
+                                            <label for="picture_title" class="etiquette">TITRE DE LA PHOTO</label>
                                             <input type="text" maxlength="100" class="form-control item" id="picture_title" name="picture_title" value="{{ old('picture_title',($product->picture->title)??'') }}">
                                         </div>
 
@@ -62,7 +62,7 @@
                                     <div class="col-12 col-md-6">
 
                                         <div class="form-group">
-                                            <label>Statut</label> <br>
+                                            <label class="etiquette">STATUT</label> <br>
                                             @error('status')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -77,7 +77,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Choisissez les tailles</label> <br>
+                                            <label class="etiquette">CHOISIR LES TAILLES</label> <br>
                                             @error('sizes')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -89,7 +89,7 @@
                                             @endforeach
                                         </div>
                                         <div class="form-group">
-                                            <label>Visibilité</label> <br>
+                                            <label class="etiquette">VISIBILITE</label> <br>
                                             @error('published')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                             @enderror
@@ -110,7 +110,7 @@
 
                                         @if (Route::is('product.edit'))
                                             <div class="form-group">
-                                                <label>Image associée :</label>
+                                                <label class="etiquette">IMAGE ASSOCIEE :</label>
                                             </div>
                                             <div class="form-group-image">
                                                 <img class="picture" src="{{url('imagesss', $product->picture->link)}}" alt="">

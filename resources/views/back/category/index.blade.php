@@ -14,8 +14,8 @@
                     <tr align="center">
                         <th>Id</th>
                         <th>Catégorie</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
