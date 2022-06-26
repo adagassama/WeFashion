@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container ">
+    <div class="container">
         {{$categories->links()}}
         <p><a href="{{route('category.create')}}"><button type="button" class="btn btn-primary btn-lg">Nouveau</button></a></p>
 

@@ -9,7 +9,7 @@
         <p class="text-md-end">{{ $products->total() }} résultats</p>
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-striped" border="1">
+                <table class="table table-striped " border="1">
                     <thead>
                     <tr align="center">
                         <th>Nom</th>
